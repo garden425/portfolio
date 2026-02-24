@@ -42,6 +42,11 @@ jobs:
       - name: Build
         run: CI=false npm run build
 
+      - name: Debug - List dist files
+        run: |
+          ls -R dist
+          cat dist/index.html
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
