@@ -34,6 +34,11 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
+      - name: Debug - List files
+        run: |
+          ls -R src
+          cat src/index.tsx
+
       - name: Build
         run: CI=false npm run build
 
