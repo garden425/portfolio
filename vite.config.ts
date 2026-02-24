@@ -10,9 +10,6 @@ export default defineConfig({
     emptyOutDir: true,
     sourcemap: false,
     rollupOptions: {
-      output: {
-        manualChunks: undefined,
-      },
     },
   }
 });
