@@ -40,7 +40,9 @@ jobs:
           cat src/index.tsx
 
       - name: Build
-        run: CI=false npm run build
+        run: |
+          rm -rf dist
+          CI=false npm run build
 
       - name: Debug - List dist files
         run: |
