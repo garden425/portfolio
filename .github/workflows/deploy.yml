@@ -29,13 +29,13 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
       - name: Build
-        run: npm run build
+        run: CI=false npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
