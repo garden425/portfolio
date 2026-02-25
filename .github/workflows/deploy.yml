@@ -46,11 +46,15 @@ jobs:
 
       - name: Verify Build
         run: |
-          if grep -q 'src="/src/index.tsx"' dist/index.html; then
+          if grep -q 'src="./src/index.tsx"' dist/index.html; then
             echo "Error: dist/index.html still references source file!"
             exit 1
           fi
-          echo "Build verified: index.html transformed correctly."
+          if [ ! -d "dist/assets" ]; then
+            echo "Error: dist/assets directory not found!"
+            exit 1
+          fi
+          echo "Build verified: index.html transformed correctly and assets found."
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
